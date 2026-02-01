@@ -1,0 +1,15 @@
+{# templates/components/_promo_block.html.twig #}
+{#
+    Composite promo block — combines all promotional components
+    Use this for convenience, or include individual components separately
+
+    Individual components:
+        {% include 'components/_promo_grid.html.twig' %}
+        {% include 'components/_features.html.twig' %}
+        {% include 'components/_newsletter_cta.html.twig' %}
+#}
+<div class="promo-block">
+    {% include 'components/_promo_grid.html.twig' %}
+    {% include 'components/_features.html.twig' %}
+    {% include 'components/_newsletter_cta.html.twig' %}
+</div>

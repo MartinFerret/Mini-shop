@@ -1,0 +1,60 @@
+{# templates/components/_promo_grid.html.twig #}
+{#
+    Bento-style promotional grid
+    Usage: {% include 'components/_promo_grid.html.twig' %}
+#}
+<section class="promo-grid">
+    <div class="promo-card promo-card--large">
+        <div class="promo-card__image">
+            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80" alt="Curated collection" loading="lazy">
+        </div>
+        <div class="promo-card__overlay"></div>
+        <div class="promo-card__content">
+            <span class="promo-card__tag">New Season</span>
+            <h3 class="promo-card__title">Curated with Care</h3>
+            <p class="promo-card__text">Handpicked essentials for the modern lifestyle</p>
+            <a href="#" class="promo-card__link">
+                Explore Collection
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    <div class="promo-card promo-card--small promo-card--dark">
+        <div class="promo-card__image">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80" alt="Free shipping" loading="lazy">
+        </div>
+        <div class="promo-card__overlay"></div>
+        <div class="promo-card__content">
+            <span class="promo-card__icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="1" y="3" width="15" height="13" rx="2"/>
+                    <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+                    <circle cx="5.5" cy="18.5" r="2.5"/>
+                    <circle cx="18.5" cy="18.5" r="2.5"/>
+                </svg>
+            </span>
+            <h3 class="promo-card__title">Free Shipping</h3>
+            <p class="promo-card__text">On orders over 50€</p>
+        </div>
+    </div>
+
+    <div class="promo-card promo-card--small">
+        <div class="promo-card__image">
+            <img src="https://images.unsplash.com/photo-1607082349566-187342175e2f?w=600&q=80" alt="Sustainable" loading="lazy">
+        </div>
+        <div class="promo-card__overlay"></div>
+        <div class="promo-card__content">
+            <span class="promo-card__icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+                    <path d="M12 6v6l4 2"/>
+                </svg>
+            </span>
+            <h3 class="promo-card__title">Easy Returns</h3>
+            <p class="promo-card__text">30-day guarantee</p>
+        </div>
+    </div>
+</section>

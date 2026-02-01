@@ -1,0 +1,48 @@
+{# templates/components/_newsletter_cta.html.twig #}
+{#
+    Newsletter signup CTA block
+
+    Usage:
+        {% include 'components/_newsletter_cta.html.twig' %}
+        {% include 'components/_newsletter_cta.html.twig' with {
+            eyebrow: 'Exclusive',
+            title: 'Join Our Club',
+            text: 'Get early access to sales.',
+            badge: 'VIP',
+            button_text: 'Sign Up'
+        } %}
+#}
+{% set default_config = {
+    eyebrow: 'Limited Time',
+    title: 'Get 20% Off Your First Order',
+    text: 'Join our community and receive exclusive offers, early access to new arrivals, and styling inspiration.',
+    badge: '20%',
+    button_text: 'Get My Code',
+    placeholder: 'Enter your email'
+} %}
+
+{% set config = default_config|merge({
+    eyebrow: eyebrow|default(default_config.eyebrow),
+    title: title|default(default_config.title),
+    text: text|default(default_config.text),
+    badge: badge|default(default_config.badge),
+    button_text: button_text|default(default_config.button_text),
+    placeholder: placeholder|default(default_config.placeholder)
+}) %}
+
+<section class="promo-cta">
+    <div class="promo-cta__content">
+        <span class="promo-cta__eyebrow">{{ config.eyebrow }}</span>
+        <h2 class="promo-cta__title">{{ config.title }}</h2>
+        <p class="promo-cta__text">{{ config.text }}</p>
+        <form class="promo-cta__form" action="#" method="post">
+            <input type="email" class="promo-cta__input" placeholder="{{ config.placeholder }}" required>
+            <button type="submit" class="btn primary">{{ config.button_text }}</button>
+        </form>
+    </div>
+    <div class="promo-cta__visual">
+        <div class="promo-cta__circle"></div>
+        <div class="promo-cta__circle promo-cta__circle--2"></div>
+        <span class="promo-cta__badge">{{ config.badge }}</span>
+    </div>
+</section>
