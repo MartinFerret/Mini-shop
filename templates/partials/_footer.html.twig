@@ -1,0 +1,18 @@
+{# templates/partials/_footer.html.twig #}
+<div class="footer-inner">
+    <div class="footer-brand">
+        <a href="{{ path('app_home') }}" class="footer-logo">
+            <span class="logo-icon">M</span>
+            <span class="logo-text">Mini Shop</span>
+        </a>
+        <p class="footer-tagline">Curated products for modern living.</p>
+    </div>
+
+    <div class="footer-links">
+        <a href="{{ path('app_home') }}">Home</a>
+        <a href="{{ path('app_about') }}">About</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <p class="footer-copy">&copy; {{ "now"|date("Y") }} Mini Shop. All rights reserved.</p>
+</div>

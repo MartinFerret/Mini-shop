@@ -163,3 +163,7 @@ docker exec symfony-docker-php-1 composer require --dev symfony/maker-bundle
 <p align="center">
   <sub>Mini Shop — Symfony + Docker</sub>
 </p>
+
+docker exec symfony-docker-php-1 php bin/console debug:router
+docker exec symfony-docker-php-1 composer require symfony/asset
+Comment fonctionnent les partials et les blocks en twig.

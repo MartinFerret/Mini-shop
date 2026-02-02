@@ -12,45 +12,48 @@
 
 	<div class="grid">
 		{% for p in products %}
-			<article class="card">
-				<img class="thumb" src="{{ p.image ?: 'https://picsum.photos/seed/fallback/1200/800' }}" alt="{{ p.name }}" loading="lazy" referrerpolicy="no-referrer">
+			<a href="{{ path('app_product_show', {slug: p.slug}) }}">
+				<article class="card">
+					<img class="thumb" src="{{ p.image ?: 'https://picsum.photos/seed/fallback/1200/800' }}" alt="{{ p.name }}" loading="lazy" referrerpolicy="no-referrer">
 
-				<div class="card-body">
-					<div class="card-top">
-						<div class="card-main">
-							<div class="card-title">{{ p.name }}</div>
+					<div class="card-body">
+						<div class="card-top">
+							<div class="card-main">
+								<div class="card-title">{{ p.name }}</div>
 
-							<div class="muted card-desc">
-								{{ p.description|slice(0, 70) }}
-								{% if p.description|length > 70 %}…
-								{% endif %}
+								<div class="muted card-desc">
+									{{ p.description|slice(0, 70) }}
+									{% if p.description|length > 70 %}…
+									{% endif %}
+								</div>
 							</div>
+
+							{# Prix en centimes (formatage plus tard) #}
+							<div class="price">{{ p.priceCents | price }}</div>
 						</div>
 
-						{# Prix en centimes (formatage plus tard) #}
-						<div class="price">{{ p.priceCents }}</div>
-					</div>
+						<div class="badges">
+							{% for t in p.tags %}
+								<span class="badge">{{ t.name }}</span>
+							{% endfor %}
+						</div>
 
-					<div class="badges">
-						{% for t in p.tags %}
-							<span class="badge">{{ t.name }}</span>
-						{% endfor %}
+						<div class="card-foot">
+							{% if p.stock > 3 %}
+								<span class="pill ok">Active</span>
+								<button class="btn primary" type="button">Add to cart</button>
+							{% else %}
+								<span class="pill warn">Almost sold out</span>
+								<button class="btn disabled" type="button" disabled>Revient bientôt</button>
+							{% endif %}
+						</div>
 					</div>
-
-					<div class="card-foot">
-						{% if p.stock > 3 %}
-							<span class="pill ok">Active</span>
-							<button class="btn primary" type="button">Add to cart</button>
-						{% else %}
-							<span class="pill warn">Almost sold out</span>
-							<button class="btn disabled" type="button" disabled>Revient bientôt</button>
-						{% endif %}
-					</div>
-				</div>
-			</article>
+				</article>
+			</a>
 		{% else %}
 			<div class="empty muted">No products.</div>
 		{% endfor %}
 	</div>
+
 
 {% endblock %}

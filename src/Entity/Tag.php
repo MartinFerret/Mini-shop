@@ -6,14 +6,13 @@ use App\Repository\TagRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\Traits\IdTrait;
 
 #[ORM\Entity(repositoryClass: TagRepository::class)]
 class Tag
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
+
+    use IdTrait;
 
     #[ORM\Column(length: 40)]
     private ?string $name = null;
@@ -30,11 +29,6 @@ class Tag
     public function __construct()
     {
         $this->products = new ArrayCollection();
-    }
-
-    public function getId(): ?int
-    {
-        return $this->id;
     }
 
     public function getName(): ?string
