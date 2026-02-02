@@ -1,0 +1,347 @@
+/* ═══════════════════════════════════════════════════════════════
+   MiniShop — Clean Minimal Light
+   ═══════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Instrument+Serif&display=swap');
+
+:root {
+  --white: #ffffff;
+  --bg: #fafafa;
+  --card: #ffffff;
+
+  --text: #1a1a1a;
+  --text-soft: #666666;
+  --text-muted: #999999;
+
+  --accent: #1a1a1a;
+  --accent-soft: #f5f5f5;
+
+  --success: #22c55e;
+  --warning: #eab308;
+
+  --border: #eeeeee;
+  --border-hover: #dddddd;
+
+  --radius: 16px;
+  --radius-sm: 10px;
+
+  --shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+  --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.08);
+
+  --ease: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--text);
+  color: var(--white);
+}
+
+/* ─── Layout ────────────────────────────────────────────────── */
+.main-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 80px 48px 120px;
+}
+
+/* ─── Header ────────────────────────────────────────────────── */
+.page-head {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.page-head .muted {
+  margin-bottom: 12px;
+}
+
+.page-title {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.muted {
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+}
+
+/* ─── Grid ──────────────────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 32px;
+}
+
+/* ─── Card ──────────────────────────────────────────────────── */
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: all 0.4s var(--ease);
+}
+
+.card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-4px);
+}
+
+/* ─── Image ─────────────────────────────────────────────────── */
+.thumb {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease);
+}
+
+.card:hover .thumb {
+  transform: scale(1.03);
+}
+
+/* ─── Card Body ─────────────────────────────────────────────── */
+.card-body {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.card-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.card-title {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.card-desc {
+  font-size: 0.9rem;
+  color: var(--text-soft);
+  line-height: 1.6;
+}
+
+/* ─── Price ─────────────────────────────────────────────────── */
+.price {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.price::before {
+  content: '€';
+  font-size: 0.75em;
+  margin-right: 1px;
+  font-weight: 500;
+}
+
+/* ─── Badges ────────────────────────────────────────────────── */
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.badge {
+  padding: 6px 14px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-soft);
+  background: var(--accent-soft);
+  border-radius: 100px;
+  transition: all 0.3s var(--ease);
+}
+
+.badge:hover {
+  background: var(--text);
+  color: var(--white);
+}
+
+/* ─── Footer ────────────────────────────────────────────────── */
+.card-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  margin-top: auto;
+}
+
+/* ─── Pills ─────────────────────────────────────────────────── */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 100px;
+}
+
+.pill::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.pill.ok {
+  background: #f0fdf4;
+  color: #15803d;
+}
+
+.pill.ok::before {
+  background: var(--success);
+}
+
+.pill.warn {
+  background: #fefce8;
+  color: #a16207;
+}
+
+.pill.warn::before {
+  background: var(--warning);
+}
+
+/* ─── Buttons ───────────────────────────────────────────────── */
+.btn {
+  padding: 14px 28px;
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.3s var(--ease);
+}
+
+.btn.primary {
+  background: var(--text);
+  color: var(--white);
+}
+
+.btn.primary:hover {
+  background: #333;
+  transform: translateY(-2px);
+}
+
+.btn.disabled {
+  background: var(--accent-soft);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+/* ─── Empty ─────────────────────────────────────────────────── */
+.empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 100px 40px;
+  background: var(--card);
+  border-radius: var(--radius);
+  border: 1px dashed var(--border);
+  color: var(--text-muted);
+}
+
+/* ─── Responsive ────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 60px 24px 80px;
+  }
+
+  .page-head {
+    margin-bottom: 50px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .card:hover {
+    transform: translateY(-2px);
+  }
+
+  .card-body {
+    padding: 24px;
+  }
+
+  .card-foot {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .pill {
+    justify-content: center;
+  }
+}
+
+/* ─── Animation ─────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  animation: fadeUp 0.5s var(--ease) backwards;
+}
+
+.card:nth-child(1) { animation-delay: 0.05s; }
+.card:nth-child(2) { animation-delay: 0.1s; }
+.card:nth-child(3) { animation-delay: 0.15s; }
+.card:nth-child(4) { animation-delay: 0.2s; }
+.card:nth-child(5) { animation-delay: 0.25s; }
+.card:nth-child(6) { animation-delay: 0.3s; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
