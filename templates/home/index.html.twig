@@ -12,7 +12,6 @@
 
 	<div class="grid">
 		{% for p in products %}
-			<a href="{{ path('app_product_show', {slug: p.slug}) }}">
 				<article class="card">
 					<img class="thumb" src="{{ p.image ?: 'https://picsum.photos/seed/fallback/1200/800' }}" alt="{{ p.name }}" loading="lazy" referrerpolicy="no-referrer">
 
@@ -38,10 +37,15 @@
 							{% endfor %}
 						</div>
 
+						<a href="{{ path('app_product_show', {slug: p.slug}) }}">View Details</a>
+
+
 						<div class="card-foot">
 							{% if p.stock > 3 %}
 								<span class="pill ok">Active</span>
-								<button class="btn primary" type="button">Add to cart</button>
+								<form method="post" action="{{ path('app_cart_add', {id: p.id}) }}">
+									<button class="btn primary" type="submit">Add to cart</button>
+								</form>
 							{% else %}
 								<span class="pill warn">Almost sold out</span>
 								<button class="btn disabled" type="button" disabled>Revient bientôt</button>
@@ -49,7 +53,6 @@
 						</div>
 					</div>
 				</article>
-			</a>
 		{% else %}
 			<div class="empty muted">No products.</div>
 		{% endfor %}

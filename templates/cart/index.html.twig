@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Panier{% endblock %}
+
+{% block body %}
+    <h1>Panier</h1>
+
+    {# init totaux #}
+    {% set totalCents = 0 %}
+    {% set totalQty = 0 %}
+
+    {% if items is empty %}
+        <p>Votre panier est vide.</p>
+    {% else %}
+        <ul>
+            {% for item in items %}
+                {# cumul #}
+                {% set lineTotalCents = item.product.priceCents * item.qty %}
+                {% set totalCents = totalCents + lineTotalCents %}
+                {% set totalQty = totalQty + item.qty %}
+
+                <li>
+                    <strong>{{ item.product.name }}</strong>
+                    <br>
+                    Prix unitaire : {{ item.product.priceCents|price }}
+                    <br>
+                    Quantité : {{ item.qty }}
+                    <br>
+                    Total article : {{ lineTotalCents|price }}
+
+                    {# enlever complètement l'article #}
+                    <form method="post" action="{{ path('app_cart_remove', {'id': item.product.id}) }}" style="display:inline;">
+                        <button type="submit">Supprimer</button>
+                    </form>
+                </li>
+                <hr>
+            {% endfor %}
+        </ul>
+
+        <p><strong>Nombre total d'articles :</strong> {{ totalQty }}</p>
+        <p><strong>Total panier :</strong> {{ totalCents|price }}</p>
+
+        {# vider le panier #}
+        <form method="post" action="{{ path('app_cart_clear') }}">
+            <button type="submit">Vider le panier</button>
+        </form>
+    {% endif %}
+{% endblock %}

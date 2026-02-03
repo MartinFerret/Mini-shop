@@ -104,3 +104,8 @@ Tu dois réutiliser Twig (inclusion) pour composer la page.
 - Pratiquer la relation **route → controller → vue**
 - Pratiquer le passage de variables à Twig
 - Apprendre à composer une page avec **inclusion Twig** plutôt que duplication
+
+1. Créer un nouveau controller qui s'appelle `CartController`
+2. Une méthode qui s'appellera `index`, qui va afficher le panier sur `/cart`.
+3. Créer la vue de cette méthode : `cart/index.html.twig`
+4. Passer une variable qui s'appelera `items` et qui sera un tableau de produits (utiliser la méthode `getDetailedItems` du CartService).

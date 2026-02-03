@@ -12,7 +12,9 @@ final class HomeController extends AbstractController
     #[Route('/', name: 'app_home')]
     public function index(ProductRepository $productRepository): Response
     {
-
+        if ($this->getUser()) {
+            $this->addFlash('success', 'Welcome to our website!');
+        }
         return $this->render('home/index.html.twig', [
             'products' => $productRepository->findForHome(),
         ]);

@@ -630,3 +630,10 @@ a {
     gap: 24px;
   }
 }
+
+.alert-success {
+  background-color: lightgreen;
+  height: 3rem;
+  border-radius: 1rem;
+  padding: 3px;
+}
