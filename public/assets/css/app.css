@@ -497,6 +497,28 @@ a {
   color: var(--white);
 }
 
+/* Login Button */
+.btn-register {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text);
+  text-decoration: none;
+  background: crimson;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: all 0.3s var(--ease);
+}
+
+.btn-register:hover {
+  background: var(--text);
+  border-color: var(--text);
+  color: var(--white);
+}
+
 .btn-icon {
   flex-shrink: 0;
 }
